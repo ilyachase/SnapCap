@@ -1,0 +1,99 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Neutralino build artifacts
+dist/
+bin/
+.tmp/
+
+# Temporary recording files
+temp/
+*.tmp
+recording_*
+
+# FFmpeg binaries (download separately)
+resources/ffmpeg/win/ffmpeg.exe
+resources/ffmpeg/mac/ffmpeg
+resources/ffmpeg/linux/ffmpeg
+
+# Neutralino auto-generated files
+resources/js/neutralino.js
+resources/js/neutralino.d.ts
+bin/
+neutralinojs.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+.nyc_output/
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# App-specific temp files
+recordings/
+*.webm
+*.mp4
+*.mkv
+
+# Windows specific
+*.lnk
+
+# macOS specific
+.AppleDouble
+.LSOverride
+Icon
+
+# Linux specific
+*~
+
+# Neutralino specific
+.neu/

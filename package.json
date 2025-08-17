@@ -1,0 +1,23 @@
+{
+  "name": "snapcap",
+  "version": "1.0.0",
+  "description": "Lightweight screen recorder with webcam overlay",
+  "scripts": {
+    "dev": "npx neu run",
+    "build": "npx neu build",
+    "build:release": "npx neu build --release",
+    "dist-win": "npx neu build --release && node scripts/package-win.js",
+    "dist-mac": "npx neu build --release && node scripts/package-mac.js",
+    "dist-linux": "npx neu build --release && node scripts/package-linux.js"
+  },
+  "keywords": [
+    "screen-recorder",
+    "snapcap",
+    "neutralino"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@neutralinojs/neu": "^11.5.0"
+  }
+}

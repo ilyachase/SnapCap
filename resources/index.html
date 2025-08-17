@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>SnapCap</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Main Recording View -->
+    <div id="mainView" class="view active">
+      <div class="header">
+        <h2>SnapCap</h2>
+        <button id="settingsBtn" class="icon-btn">⚙️</button>
+      </div>
+      
+      <div class="control-panel">
+        <!-- Camera Preview -->
+        <div id="cameraPreview" class="camera-preview">
+          <video id="previewVideo" autoplay muted></video>
+          <div class="preview-placeholder">
+            <span>📷 Camera Preview</span>
+          </div>
+        </div>
+        
+        <!-- Recording Options -->
+        <div class="options-group">
+          <label class="option">
+            <input type="checkbox" id="cameraToggle" checked>
+            <span>Include Camera</span>
+          </label>
+          <label class="option">
+            <input type="checkbox" id="audioToggle" checked>
+            <span>Record Audio</span>
+          </label>
+          <label class="option">
+            <input type="checkbox" id="systemAudioToggle">
+            <span>System Audio</span>
+          </label>
+        </div>
+        
+        <!-- Device Selection -->
+        <div class="device-selection">
+          <select id="cameraSelect" class="device-select">
+            <option value="">Select Camera...</option>
+          </select>
+          <select id="micSelect" class="device-select">
+            <option value="">Select Microphone...</option>
+          </select>
+        </div>
+        
+        <!-- Record Button -->
+        <button id="recordBtn" class="record-button">
+          <span class="record-icon"></span>
+          <span class="button-text">Start Recording</span>
+        </button>
+        
+        <!-- Hotkey Info -->
+        <div class="hotkey-info">
+          Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> to start/stop
+        </div>
+      </div>
+    </div>
+
+    <!-- Recording State View -->
+    <div id="recordingView" class="view">
+      <div class="recording-header">
+        <span class="recording-dot"></span>
+        <span>Recording...</span>
+      </div>
+      <div class="recording-info">
+        <div id="recordingTime" class="timer">00:00</div>
+        <div class="recording-controls">
+          <button id="pauseBtn" class="control-btn">⏸️ Pause</button>
+          <button id="stopBtn" class="control-btn stop">⏹️ Stop</button>
+        </div>
+      </div>
+      <div class="minimize-hint">
+        Window will minimize to system tray
+      </div>
+    </div>
+
+    <!-- Review View -->
+    <div id="reviewView" class="view">
+      <div class="header">
+        <h3>Review Recording</h3>
+      </div>
+      <video id="reviewVideo" controls></video>
+      <div class="trim-controls">
+        <input type="range" id="trimStart" min="0" max="100" value="0">
+        <input type="range" id="trimEnd" min="0" max="100" value="100">
+        <div class="trim-info">
+          <span id="trimStartTime">00:00</span> - <span id="trimEndTime">00:00</span>
+        </div>
+      </div>
+      <div class="review-actions">
+        <button id="saveBtn" class="primary-btn">💾 Save</button>
+        <button id="saveAsBtn" class="secondary-btn">Save As...</button>
+        <button id="discardBtn" class="danger-btn">🗑️ Discard</button>
+        <button id="recordAgainBtn" class="secondary-btn">Record Again</button>
+      </div>
+    </div>
+
+    <!-- Settings View -->
+    <div id="settingsView" class="view">
+      <div class="header">
+        <button id="backBtn" class="icon-btn">←</button>
+        <h3>Settings</h3>
+      </div>
+      <div class="settings-content">
+        <div class="setting-group">
+          <h4>Recording Quality</h4>
+          <select id="qualitySelect">
+            <option value="low">Low (720p, 15fps)</option>
+            <option value="medium" selected>Medium (1080p, 30fps)</option>
+            <option value="high">High (1080p, 60fps)</option>
+            <option value="ultra">Ultra (4K, 30fps)</option>
+          </select>
+        </div>
+        <div class="setting-group">
+          <h4>Output Format</h4>
+          <select id="formatSelect">
+            <option value="mp4" selected>MP4</option>
+            <option value="webm">WebM</option>
+            <option value="mkv">MKV</option>
+          </select>
+        </div>
+        <div class="setting-group">
+          <h4>Save Location</h4>
+          <input type="text" id="saveLocation" readonly>
+          <button id="browseSaveLocation">Browse...</button>
+        </div>
+        <div class="setting-group">
+          <h4>Camera Position</h4>
+          <select id="cameraPosition">
+            <option value="bottom-right" selected>Bottom Right</option>
+            <option value="bottom-left">Bottom Left</option>
+            <option value="top-right">Top Right</option>
+            <option value="top-left">Top Left</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/neutralino.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/recorder.js"></script>
+  <script src="js/camera.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/storage.js"></script>
+</body>
+</html>

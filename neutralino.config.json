@@ -1,0 +1,44 @@
+{
+  "applicationId": "com.snapcap.app",
+  "version": "1.0.0",
+  "defaultMode": "window",
+  "port": 0,
+  "documentRoot": "/resources/",
+  "url": "/",
+  "enableServer": true,
+  "enableNativeAPI": true,
+  "nativeAllowList": [
+    "app.*",
+    "os.*",
+    "filesystem.*",
+    "storage.*",
+    "window.*",
+    "events.*",
+    "extensions.*",
+    "clipboard.*"
+  ],
+  "modes": {
+    "window": {
+      "title": "SnapCap",
+      "width": 400,
+      "height": 500,
+      "minWidth": 350,
+      "minHeight": 400,
+      "icon": "/resources/icon.png",
+      "enableInspector": false,
+      "borderless": false,
+      "maximize": false,
+      "hidden": false,
+      "resizable": true,
+      "exitProcessOnClose": true
+    }
+  },
+  "cli": {
+    "binaryName": "snapcap",
+    "resourcesPath": "/resources/",
+    "extensionsPath": "/extensions/",
+    "clientLibrary": "/resources/js/neutralino.js",
+    "binaryVersion": "4.14.1",
+    "clientVersion": "3.12.0"
+  }
+}

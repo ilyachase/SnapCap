@@ -1,0 +1,385 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #333;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view {
+  display: none;
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s ease;
+}
+
+.view.active {
+  display: block;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h2, .header h3 {
+  color: #667eea;
+  font-size: 24px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.icon-btn:hover {
+  background: #f0f0f0;
+}
+
+/* Camera Preview */
+.camera-preview {
+  width: 100%;
+  height: 200px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.camera-preview video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.camera-preview.active video {
+  display: block;
+}
+
+.preview-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #999;
+}
+
+.camera-preview.active .preview-placeholder {
+  display: none;
+}
+
+/* Options */
+.options-group {
+  margin-bottom: 20px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.option input[type="checkbox"] {
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.option span {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Device Selection */
+.device-selection {
+  margin-bottom: 20px;
+}
+
+.device-select {
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+}
+
+.device-select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* Record Button */
+.record-button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.record-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(245, 87, 108, 0.4);
+}
+
+.record-button:active {
+  transform: translateY(0);
+}
+
+.record-icon {
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Recording State */
+.recording-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.recording-dot {
+  width: 12px;
+  height: 12px;
+  background: #f5576c;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.timer {
+  font-size: 48px;
+  font-weight: 300;
+  text-align: center;
+  color: #667eea;
+  margin-bottom: 24px;
+  font-variant-numeric: tabular-nums;
+}
+
+.recording-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.control-btn {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.control-btn:hover {
+  background: #f5f5f5;
+}
+
+.control-btn.stop {
+  background: #f5576c;
+  color: white;
+  border-color: #f5576c;
+}
+
+.control-btn.stop:hover {
+  background: #e04560;
+}
+
+/* Review View */
+#reviewVideo {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.trim-controls {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.trim-controls input[type="range"] {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.trim-info {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Review Actions */
+.review-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.primary-btn, .secondary-btn, .danger-btn {
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.primary-btn {
+  background: #667eea;
+  color: white;
+  grid-column: span 2;
+}
+
+.primary-btn:hover {
+  background: #5a67d8;
+}
+
+.secondary-btn {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.secondary-btn:hover {
+  background: #e0e0e0;
+}
+
+.danger-btn {
+  background: #f56565;
+  color: white;
+}
+
+.danger-btn:hover {
+  background: #e53e3e;
+}
+
+/* Settings */
+.settings-content {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.setting-group {
+  margin-bottom: 20px;
+}
+
+.setting-group h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.setting-group select,
+.setting-group input[type="text"] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.setting-group button {
+  margin-top: 8px;
+  padding: 8px 16px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Hotkey Info */
+.hotkey-info {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 12px;
+  color: #999;
+}
+
+kbd {
+  padding: 2px 6px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 11px;
+}
+
+/* Minimize Hint */
+.minimize-hint {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #999;
+}
